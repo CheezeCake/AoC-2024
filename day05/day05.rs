@@ -50,7 +50,7 @@ fn main() {
         .lines()
         .map(|line| {
             line.split(',')
-                .map(|page| page.parse::<usize>().expect("erorr parsing page number"))
+                .map(|page| page.parse::<usize>().expect("error parsing page number"))
                 .collect()
         })
         .collect();
