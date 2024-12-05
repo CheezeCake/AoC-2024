@@ -6,7 +6,6 @@ use std::io;
 fn correct_order(update: &[usize], dependencies: &HashMap<usize, HashSet<usize>>) -> Vec<usize> {
     let update_set: HashSet<usize> = update.iter().cloned().collect();
     let mut print_queue: VecDeque<usize> = update.iter().cloned().collect();
-    let mut printed: HashSet<usize> = HashSet::new();
     let mut print_order = Vec::new();
     let mut dependencies = dependencies.clone();
 
@@ -19,7 +18,6 @@ fn correct_order(update: &[usize], dependencies: &HashMap<usize, HashSet<usize>>
             == 0
         {
             print_order.push(page);
-            printed.insert(page);
             for (_, deps) in &mut dependencies {
                 deps.remove(&page);
             }
